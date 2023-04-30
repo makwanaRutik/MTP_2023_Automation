@@ -1,0 +1,124 @@
+You should have first.c file and it's makefile and exaple level makefile add the first program and add endif
+
+
+terminal 0:
+cd shakti-sdk
+make software PROGRAM=mybaudrate TARGET=pinaka
+
+here we can write vajra or pinaka or parashu make chnages accordingly below too..
+
+Open three terminals, one for each of the following
+a. One terminal for UART terminal display.
+b. Another for OpenOCD
+c. And the last one for GDB server.
+
+python USB1miniterm.py /dev/ttyUSB1 19200 
+python USB2miniterm.py /dev/ttyUSB2 19200 
+
+Terminal UART:
+sudo miniterm /dev/ttyUSB2 19200
+
+sudo miniterm /dev/ttyUSB1 19200 will also work if we get error in .py
+here sudo miniterm.py /dev/ttyUSB1 19200 take cursur to the ttyUSB1 here and press tab so there will be ttyUSB0 ttyUSB1 ttyUSB2 take maximum means 
+............................ ................................................................................................................................................................................................................................................
+Terminal OPENOCD:
+pwd
+//go to -> /home/user/shakti-sdk –––––-> you are in the right directory
+
+
+sudo ~/shakti-tool/bin/openocd -f ~/shakti-sdk/bsp/third_party/pinaka/ftdi.cfg      
+sudo $(OPENOCD) -f $(BOARDTYPEPINIKA)      
+
+or
+cd ./bsp/third_party/pinaka
+sudo $(which openocd) -f ftdi.cfg
+............................................................................................................................................................................................................................................................................
+
+Terminal Risc:
+
+riscv32-unknown-elf-gdb 
+set remotetimeout unlimited
+target remote localhost:3333 
+file ./software/examples/uart_applns/first/output/mybaudrate.shakti
+enter y
+load
+c
+
+
+....................................................................................................................................................................................
+compile c code:
+
+gcc -o readfile readfile.c
+./readfile
+
+...........................................................................................................................................................
+set envioromanet for python script
+burnFlash.py
+
+export SHAKTISDK="shakti-sdk"
+echo $SHAKTISDK
+
+
+step1) in terminal use this command
+nano ~/.bashrc  
+
+step 2) add all 3 paths at the end
+export SHAKTISDK="shakti-sdk"
+export OPENOCD="shakti-too/bin/openocd"
+export BOARDTYPEPINIKA="shakti-sdk/bsp/third_party/pinaka/ftdi.cfg"
+export BOARDTYPEVAJRA="shakti-sdk/bsp/third_party/vajra/ftdi.cfg"
+export BOARDTYPEPARASHU="shakti-sdk/bsp/third_party/parashu/ftdi.cfg"
+
+step 3)
+press controll + X , then Y and then enter.
+
+step 4)
+source ~/.bashrc
+
+python MTP.py /dev/ttyUSB2 19200 my_name_is_po
+
+python INMPORT_TRY_1.py /dev/ttyUSB2 19200
+
+python myFlash.py /software/examples/uart_applns/first/output/mybaudrate.shakti
+
+https://cs01.github.io/pygdbmi/api/gdbcontroller/#pygdbmi.gdbcontroller.GdbController.spawn_new_gdb_subprocess
+https://github.com/cs01/pygdbmi/blob/master/pygdbmi/gdbcontroller.py
+
+
+
+
+
+
+
+.............................................................................................................
+sudo ~/shakti-tool/bin/openocd -f ~/shakti-sdk/bsp/third_party/pinaka/ftdi.cfg      
+what does this command do
+
+
+This command runs the openocd program with elevated privileges (using sudo) and specifies a configuration
+ file (ftdi.cfg) to use with a certain hardware device. The openocd program is a debugging and programming 
+ tool that supports various microcontroller architectures and interfaces, and is commonly used in embedded
+  systems development.
+
+Here's a breakdown of the command and its components:
+
+sudo: This command runs the following command with elevated privileges, usually as the root user.
+
+~/shakti-tool/bin/openocd: This specifies the path to the openocd program binary file.
+
+-f ~/shakti-sdk/bsp/third_party/pinaka/ftdi.cfg: This specifies a configuration file to use with openocd. 
+The -f option indicates that the following argument is a configuration file, and ftdi.cfg is the actual file name. 
+The file is located in the pinaka directory under the third_party directory of the bsp (Board Support Package) 
+directory in the shakti-sdk directory. The ftdi.cfg file likely contains settings for communicating with an FTDI 
+(Future Technology Devices International) USB-to-serial converter chip, which is commonly used as a debug interface 
+for microcontrollers.
+
+
+
+
+
+
+
+
+
+

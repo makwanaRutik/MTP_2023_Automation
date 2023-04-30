@@ -1,0 +1,153 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h3> whooho signed up </h3>
+
+    <form action="/signin" method="post">
+
+    {% csrf_token %}
+        <label for="">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter a username" required>
+        <br>
+
+
+        <label for="">password</label>
+        <input type="password" id="pass1" name="pass1" placeholder=" Enter your password " required>
+        <br>
+
+
+        <button type="submit">Sign In</button>
+        <br>
+
+    </form>
+</body>
+</html>
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+   
+ 
+  </div>
+    <h2><b><center> Sign In </center></b></h2>
+
+  	<!--<div class="imgcontainer">
+    <img src="naruto2.jpg" alt="Avatar" class="avatar">
+  </div> -->
+    <form action="/signin" method="post">
+
+    {% csrf_token %}
+        <label for=""><b>Username</b></label>
+        <input type="text" id="username" name="username" placeholder="Enter a username" required>
+        <br>
+
+
+        <label for=""><b>password</b></label>
+        <input type="password" id="pass1" name="pass1" placeholder=" Enter your password " required>
+        <br>
+
+
+        <button type="submit">Sign In</button>
+        <br>
+
+    </form>
+</body>
+</html>
+
+
